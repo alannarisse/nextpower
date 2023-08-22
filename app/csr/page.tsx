@@ -10,8 +10,12 @@ export const revalidate = 0
 
 
 export default function CSR() {
-  const [todos, setTodos] = useState([])
-  
+  interface DataType {
+  id: string;
+  title: string;
+}
+  const [todos, setTodos] = useState<Array<DataType>>([])
+ 
   useEffect(() => {
     const fetchTodos = async () => {
         const res = await fetch('https://jsonplaceholder.typicode.com/todos')
@@ -22,6 +26,8 @@ export default function CSR() {
 
   }, [])
   console.log(typeof(todos))
+  
+
   return (
     <main>
       <h1>Client Side Generated</h1>
