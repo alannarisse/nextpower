@@ -15,8 +15,8 @@ export default function CSR() {
   useEffect(() => {
     const fetchTodos = async () => {
         const res = await fetch('https://jsonplaceholder.typicode.com/todos')
-        const data = await res.json()
-        setTodos(data)
+        const todos = await res.json()
+        setTodos(todos)
     }
     fetchTodos()
 
